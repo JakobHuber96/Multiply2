@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         firstNumberString = firstNumber.text ?? "0"
         // ?? means optional datatype it provides a default value to the data just incase the user gives you garbage
         
-        secondNumberString = firstNumber.text ?? "0"
+        secondNumberString = secondNumber.text ?? "0"
         
         firstNumberDouble = Double (firstNumberString) ?? 0.0
         
@@ -53,13 +53,22 @@ class ViewController: UIViewController {
         
         thirdNumberDouble = firstNumberDouble + secondNumberDouble
         
-      
+        print(firstNumberDouble)
+        print(secondNumberDouble)
+        print(thirdNumberDouble)
+        
+        finalSum.text = "\(thirdNumberDouble)"
+        
+        
+        
+        
 //        thirdNumberDouble = Double(thirdNumberText) ?? ""
         
-        thirdNumberText = 
-    
-    }
+      //  thirdNumberText =
+    1
+   }
 
     
+
+
 }
-

@@ -29,12 +29,22 @@ class ViewController: UIViewController {
     
     var thirdNumberText = ""
   
-   
+    var valueOf64 = ""
+    
+    var valueOf64Int = 64.0
+    
+    var finalNumberPrint = 0.0
+
+    
+    
     
     // doubles use "." without quoations or else it becomes string
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
+        
+        
     }
     
 
@@ -59,16 +69,27 @@ class ViewController: UIViewController {
         
         finalSum.text = "\(thirdNumberDouble)"
         
+  //          finalSum.text = "\(finalNumberPrint)"
         
+       if thirdNumberDouble == 64.0 {
+           sixtyFourImage.isHidden = false
+           sixtyFourImage.image = UIImage(named: "donkeyKong")
+      
+          }
         
-        
-//        thirdNumberDouble = Double(thirdNumberText) ?? ""
-        
-      //  thirdNumberText =
-    1
-   }
+         else if thirdNumberDouble != 64.0 {  sixtyFourImage.isHidden  = true
+            
+            
+            
+            
+            
+       
+       }
+  }
 
+   @IBOutlet var sixtyFourImage: UIImageView!
     
+  
 
+     }
 
-}

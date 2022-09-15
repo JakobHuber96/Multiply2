@@ -51,19 +51,29 @@
                                     <action selector="buttonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHE-At-lvD"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-s6-RLU">
+                                <rect key="frame" x="87" y="583" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="WlX-fX-vnN" appends="YES" id="5mH-bc-1jc"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="finalSum" destination="VVQ-a1-GuW" id="YdM-1I-YX4"/>
                         <outlet property="firstNumber" destination="7Us-My-58g" id="Cjq-aU-q2c"/>
                         <outlet property="secondNumber" destination="AuA-C3-jML" id="oQT-Y4-vSc"/>
+                        <outlet property="sixtyFourImage" destination="3cd-s6-RLU" id="byq-bb-sEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="WlX-fX-vnN"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="384.375"/>
+            <point key="canvasLocation" x="181" y="185"/>
         </scene>
     </scenes>
     <resources>

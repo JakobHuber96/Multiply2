@@ -35,11 +35,18 @@ class ViewController: UIViewController {
     
     var finalNumberPrint = 0.0
 
+    var thirdNumberDoubleInt = 0
     
+    var evenDecider = 0
     
+    var evenMore = 0
+    
+    var thirdNumberFloor = 0.0
+    
+    var thirdNumberInt = 0
     
     // doubles use "." without quoations or else it becomes string
-    override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
@@ -61,6 +68,9 @@ class ViewController: UIViewController {
         
         secondNumberDouble = Double (secondNumberString) ?? 0.0
         
+        secondNumber.resignFirstResponder()
+        
+        firstNumber.resignFirstResponder()
         thirdNumberDouble = firstNumberDouble + secondNumberDouble
         
         print(firstNumberDouble)
@@ -79,17 +89,48 @@ class ViewController: UIViewController {
         
          else if thirdNumberDouble != 64.0 {  sixtyFourImage.isHidden  = true
             
-            
-            
-            
+             
+             
             
        
        }
-  }
+        
+        thirdNumberFloor = floor(thirdNumberDouble)
+        print (thirdNumberFloor)
+        
+        thirdNumberInt = Int(thirdNumberFloor)
+        
 
-   @IBOutlet var sixtyFourImage: UIImageView!
+        
+//        if evenMore == 0 { funnyImages.image = UIImage(named: "Monke")
+            
+            if thirdNumberFloor == thirdNumberDouble {
+            
+                evenDecider = thirdNumberInt
+                       
+                       evenMore = evenDecider % 2
+                print(evenMore)
+                
+                if evenMore == 0 { funnyImages.image = UIImage(named: "Monke") }
+                
+                else if evenMore == 1 { funnyImages.image = UIImage(named: "noJoke")}
+            }
+        
+       
+            
+            
+            
+        
+        
+        
+        
+    }
+
+    @IBOutlet var funnyImages: UIImageView!
+    @IBOutlet var sixtyFourImage: UIImageView!
     
-  
 
-     }
 
+    
+
+}

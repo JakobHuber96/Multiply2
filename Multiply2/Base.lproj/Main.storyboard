@@ -52,7 +52,11 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-s6-RLU">
-                                <rect key="frame" x="87" y="583" width="240" height="128"/>
+                                <rect key="frame" x="85" y="540" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-I3-RFw">
+                                <rect key="frame" x="77" y="707" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -66,6 +70,7 @@
                     <connections>
                         <outlet property="finalSum" destination="VVQ-a1-GuW" id="YdM-1I-YX4"/>
                         <outlet property="firstNumber" destination="7Us-My-58g" id="Cjq-aU-q2c"/>
+                        <outlet property="funnyImages" destination="BNn-I3-RFw" id="gb4-w0-9XG"/>
                         <outlet property="secondNumber" destination="AuA-C3-jML" id="oQT-Y4-vSc"/>
                         <outlet property="sixtyFourImage" destination="3cd-s6-RLU" id="byq-bb-sEe"/>
                     </connections>

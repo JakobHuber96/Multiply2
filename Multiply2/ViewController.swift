@@ -50,8 +50,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
-        
-        
+       if finalSum.text == "Label" {
+           finalSum.isHidden  = true
+       
+       
+       }
     }
     
 
@@ -59,6 +62,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonPress(_ sender: Any) {
+        
+        finalSum.isHidden  = false
+        
+        
         firstNumberString = firstNumber.text ?? "0"
         // ?? means optional datatype it provides a default value to the data just incase the user gives you garbage
         
@@ -107,20 +114,28 @@ class ViewController: UIViewController {
             if thirdNumberFloor == thirdNumberDouble {
             
                 evenDecider = thirdNumberInt
-                       
+                 
+                
                        evenMore = evenDecider % 2
                 print(evenMore)
                 
-                if evenMore == 0 { funnyImages.image = UIImage(named: "Monke") }
+                if evenMore == 0 { funnyImages.image = UIImage(named: "Monke")
+                    funnyImages.isHidden  = false
+            
+                    
+                }
                 
-                else if evenMore == 1 { funnyImages.image = UIImage(named: "noJoke")}
+                else if evenMore == 1 { funnyImages.image = UIImage(named: "noJoke")
+                    
+                    funnyImages.isHidden  = false
+                }
             }
         
-       
+        if finalSum.text == "0.0" {
             
+            finalSum.isHidden  = true
             
-            
-        
+        }
         
         
         
@@ -129,8 +144,15 @@ class ViewController: UIViewController {
     @IBOutlet var funnyImages: UIImageView!
     @IBOutlet var sixtyFourImage: UIImageView!
     
-
-
+    @IBAction func Clear(_ sender: Any) {
+        sixtyFourImage.isHidden  = true
+        funnyImages.isHidden  = true
+        secondNumber.text = ""
+        firstNumber.text = ""
+        finalSum.isHidden  = true
+    }
     
-
+   // if thirdNumberDouble == 0.0 {
+   //     finalSum.isHidden   = true
+//}
 }

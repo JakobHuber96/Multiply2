@@ -22,13 +22,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-kz-RcV">
-                                <rect key="frame" x="186" y="381" width="42" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AuA-C3-jML">
                                 <rect key="frame" x="132" y="478" width="151" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -43,14 +36,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsO-b7-RD5">
-                                <rect key="frame" x="127" y="219" width="156" height="31"/>
+                                <rect key="frame" x="127" y="171" width="156" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add "/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
                                 <connections>
                                     <action selector="buttonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHE-At-lvD"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NA1-B1-2Qh">
+                                <rect key="frame" x="142" y="210" width="111" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="+"/>
+                                    <segment title="-"/>
+                                    <segment title="X"/>
+                                    <segment title="/"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segOut:" destination="BYZ-38-t0r" eventType="valueChanged" id="DVl-C9-RjV"/>
+                                </connections>
+                            </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-s6-RLU">
                                 <rect key="frame" x="85" y="540" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,6 +74,13 @@
                                 <rect key="frame" x="85" y="707" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-kz-RcV">
+                                <rect key="frame" x="184" y="394" width="42" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -77,10 +90,12 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="changingSymbol" destination="8i9-kz-RcV" id="JGk-NI-tin"/>
                         <outlet property="finalSum" destination="VVQ-a1-GuW" id="YdM-1I-YX4"/>
                         <outlet property="firstNumber" destination="7Us-My-58g" id="Cjq-aU-q2c"/>
                         <outlet property="funnyImages" destination="BNn-I3-RFw" id="gb4-w0-9XG"/>
                         <outlet property="secondNumber" destination="AuA-C3-jML" id="oQT-Y4-vSc"/>
+                        <outlet property="segControl" destination="NA1-B1-2Qh" id="t54-Mi-iT0"/>
                         <outlet property="sixtyFourImage" destination="3cd-s6-RLU" id="byq-bb-sEe"/>
                     </connections>
                 </viewController>

@@ -12,7 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet var firstNumber: UITextField!
     
     
+    @IBOutlet weak var segControl: UISegmentedControl!
     
+    @IBOutlet var changingSymbol: UILabel!
     
     
     @IBOutlet var secondNumber: UITextField!
@@ -55,7 +57,15 @@ class ViewController: UIViewController {
        
        
        }
-    }
+       let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.blue]
+       segControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+       
+       let titleTextAttributes2 = [NSAttributedString.Key.foregroundColor: UIColor.red]
+       segControl.setTitleTextAttributes(titleTextAttributes2, for: .selected)
+   
+   }
+    
+    
     
 
     @IBOutlet var finalSum: UILabel!
@@ -78,81 +88,156 @@ class ViewController: UIViewController {
         secondNumber.resignFirstResponder()
         
         firstNumber.resignFirstResponder()
-        thirdNumberDouble = firstNumberDouble + secondNumberDouble
+        //thirdNumberDouble = firstNumberDouble + secondNumberDouble
         
+        if segControl.selectedSegmentIndex == 0 {
+            thirdNumberDouble = firstNumberDouble + secondNumberDouble
+            }
+        
+        else if segControl.selectedSegmentIndex == 1 {
+            thirdNumberDouble = firstNumberDouble - secondNumberDouble
+        }
+      
+        else if segControl.selectedSegmentIndex == 2 {
+    thirdNumberDouble = firstNumberDouble * secondNumberDouble
+        }
+    
+        else if segControl.selectedSegmentIndex == 3 {
+    thirdNumberDouble = firstNumberDouble / secondNumberDouble
+        }
         print(firstNumberDouble)
         print(secondNumberDouble)
         print(thirdNumberDouble)
         
         finalSum.text = "\(thirdNumberDouble)"
         
-  //          finalSum.text = "\(finalNumberPrint)"
-        
-       if thirdNumberDouble == 64.0 {
-           sixtyFourImage.isHidden = false
-           sixtyFourImage.image = UIImage(named: "donkeyKong")
-      
-          }
-        
-         else if thirdNumberDouble != 64.0 {  sixtyFourImage.isHidden  = true
+        //          finalSum.text = "\(finalNumberPrint)"
+              
+             if thirdNumberDouble == 64.0 {
+                 sixtyFourImage.isHidden = false
+                 sixtyFourImage.image = UIImage(named: "donkeyKong")
             
-             
-             
-            
-       
-       }
-        
-        thirdNumberFloor = floor(thirdNumberDouble)
-        print (thirdNumberFloor)
-        
-        thirdNumberInt = Int(thirdNumberFloor)
-        
+                }
+              
+               else if thirdNumberDouble != 64.0 {  sixtyFourImage.isHidden  = true
+                  
+                   }
+              
+              thirdNumberFloor = floor(thirdNumberDouble)
+              print (thirdNumberFloor)
+              
+              thirdNumberInt = Int(thirdNumberFloor)
+              
 
-        
-//        if evenMore == 0 { funnyImages.image = UIImage(named: "Monke")
+              
+      //        if evenMore == 0 { funnyImages.image = UIImage(named: "Monke")
+                  
+                  if thirdNumberFloor == thirdNumberDouble {
+                  
+                      evenDecider = thirdNumberInt
+                       
+                      
+                             evenMore = evenDecider % 2
+                      print(evenMore)
+                      
+                      if evenMore == 0 { funnyImages.image = UIImage(named: "Monke")
+                          funnyImages.isHidden  = false
+                  
+                          
+                      }
+                      
+                      else if evenMore == 1 { funnyImages.image = UIImage(named: "noJoke")
+                          
+                          funnyImages.isHidden  = false
+                      }
+                  }
+              
+              if finalSum.text == "0.0" {
+                  
+                  finalSum.isHidden  = true
+                  
+              }
+    }
+    @IBOutlet var funnyImages: UIImageView!
+     @IBOutlet var sixtyFourImage: UIImageView!
+ 
+     @IBAction func Clear(_ sender: Any) {
+         sixtyFourImage.isHidden  = true
+         funnyImages.isHidden  = true
+         secondNumber.text = ""
+         firstNumber.text = ""
+         finalSum.isHidden  = true
+     }
+ 
+ 
+     @IBAction func segOut (_ sender: Any) {
+         switch segControl.selectedSegmentIndex
+         {
+         case 0:
+             thirdNumberDouble = firstNumberDouble + secondNumberDouble
+             changingSymbol.text = "+"
+         case 1:
+             thirdNumberDouble = firstNumberDouble - secondNumberDouble
+             changingSymbol.text = "-"
+         case 2:
+             thirdNumberDouble = firstNumberDouble * secondNumberDouble
+             changingSymbol.text = "x"
+         case 3:
+             thirdNumberDouble = firstNumberDouble / secondNumberDouble
+             changingSymbol.text = "/"
+         default:
+             thirdNumberDouble = firstNumberDouble + secondNumberDouble
+             changingSymbol.text = "+"
+  
+
+}
+
+//    @IBOutlet var funnyImages: UIImageView!
+//    @IBOutlet var sixtyFourImage: UIImageView!
+//
+//    @IBAction func Clear(_ sender: Any) {
+//        sixtyFourImage.isHidden  = true
+//        funnyImages.isHidden  = true
+//        secondNumber.text = ""
+//        firstNumber.text = ""
+//        finalSum.isHidden  = true
+//    }
+//
+//
+//    @IBAction func segOut (_ sender: Any) {
+//        switch segControl.selectedSegmentIndex
+//        {
+//        case 0:
+//            thirdNumberDouble = firstNumberDouble + secondNumberDouble
+//
+//        case 1:
+//            thirdNumberDouble = firstNumberDouble - secondNumberDouble
+//
+//        case 2:
+//            thirdNumberDouble = firstNumberDouble * secondNumberDouble
+//
+//        case 3:
+//            thirdNumberDouble = firstNumberDouble / secondNumberDouble
+//
+//        default:
+//            thirdNumberDouble = firstNumberDouble + secondNumberDouble
+//
             
-            if thirdNumberFloor == thirdNumberDouble {
             
-                evenDecider = thirdNumberInt
-                 
-                
-                       evenMore = evenDecider % 2
-                print(evenMore)
-                
-                if evenMore == 0 { funnyImages.image = UIImage(named: "Monke")
-                    funnyImages.isHidden  = false
             
-                    
-                }
-                
-                else if evenMore == 1 { funnyImages.image = UIImage(named: "noJoke")
-                    
-                    funnyImages.isHidden  = false
-                }
-            }
-        
-        if finalSum.text == "0.0" {
             
-            finalSum.isHidden  = true
+            
             
         }
         
         
-        
     }
-
-    @IBOutlet var funnyImages: UIImageView!
-    @IBOutlet var sixtyFourImage: UIImageView!
     
-    @IBAction func Clear(_ sender: Any) {
-        sixtyFourImage.isHidden  = true
-        funnyImages.isHidden  = true
-        secondNumber.text = ""
-        firstNumber.text = ""
-        finalSum.isHidden  = true
-    }
+    
+
+    
     
    // if thirdNumberDouble == 0.0 {
    //     finalSum.isHidden   = true
 //}
-}
+
